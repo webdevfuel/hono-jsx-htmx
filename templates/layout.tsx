@@ -5,8 +5,14 @@ export const Layout: FC = (props) => {
         <html>
             <head>
                 <script src="/static/htmx.min.js"></script>
+                <script src="https://cdn.tailwindcss.com"></script>
             </head>
-            <body>{props.children}</body>
+            <body>
+                <main class="max-w-screen-md mx-auto">
+                    {props.children}
+                </main>
+            </body>
         </html>
     )
 }
+
