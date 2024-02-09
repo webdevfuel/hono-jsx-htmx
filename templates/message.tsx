@@ -1,8 +1,12 @@
 import type { FC } from 'hono/jsx'
 
-export const Message: FC = (props) => {
+type MessageProps = {
+    id?: string
+}
+
+export const Message: FC<MessageProps> = (props) => {
     return (
-        <p>
+        <p {...props}>
             {props.children}
         </p>
     )
