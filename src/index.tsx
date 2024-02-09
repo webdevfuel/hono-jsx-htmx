@@ -6,6 +6,7 @@ import { deleteMessage, getMessage, patchMessage, postMessage, putMessage } from
 import { Link } from '../templates/link'
 import { Card } from '../templates/card'
 import { Grid } from '../templates/grid'
+import { Documentation } from '../templates/documentation'
 
 const app = new Hono()
 
@@ -14,6 +15,7 @@ app.use('/static/*', serveStatic({ root: './' }))
 app.get('/', (c) => {
   return c.html(
     <Layout>
+      <Documentation />
       <Grid>
         <Card>
           <Link method='get' href='/message'>GET /message</Link>
