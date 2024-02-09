@@ -4,6 +4,8 @@ import { Layout } from '../templates/layout'
 import { serveStatic } from '@hono/node-server/serve-static'
 import { deleteMessage, getMessage, patchMessage, postMessage, putMessage } from './message'
 import { Link } from '../templates/link'
+import { Card } from '../templates/card'
+import { Grid } from '../templates/grid'
 
 const app = new Hono()
 
@@ -12,11 +14,23 @@ app.use('/static/*', serveStatic({ root: './' }))
 app.get('/', (c) => {
   return c.html(
     <Layout>
-      <Link method='get' href='/message'>GET /message</Link>
-      <Link method='post' href='/message'>POST /message</Link>
-      <Link method='patch' href='/message'>PATCH /message</Link>
-      <Link method='put' href='/message'>PUT /message</Link>
-      <Link method='delete' href='/message'>DELETE /message</Link>
+      <Grid>
+        <Card>
+          <Link method='get' href='/message'>GET /message</Link>
+        </Card>
+        <Card>
+          <Link method='post' href='/message'>POST /message</Link>
+        </Card>
+        <Card>
+          <Link method='patch' href='/message'>PATCH /message</Link>
+        </Card>
+        <Card>
+          <Link method='put' href='/message'>PUT /message</Link>
+        </Card>
+        <Card>
+          <Link method='delete' href='/message'>DELETE /message</Link>
+        </Card>
+      </Grid>
     </Layout>
   )
 })
